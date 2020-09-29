@@ -18,6 +18,7 @@ html, body {
   display: -ms-flexbox;
   display: flex;
   font-family: Montserrat;
+  background: #f0f0f0;
 }
 
 .wrapper {
@@ -30,7 +31,6 @@ html, body {
       grid-template-rows: auto auto 1fr auto auto;
   -ms-grid-columns: 1fr 2fr 2fr;
       grid-template-columns: 1fr 2fr 2fr;
-  background: #f0f0f0;
 }
 
 .header {
@@ -48,6 +48,11 @@ html, body {
   border-top: 1px solid black;
   border-bottom: 1px solid black;
   background: white;
+  position: -webkit-sticky;
+  position: sticky;
+  -webkit-box-shadow: 0px 5px 5px rgba(0, 0, 0, 0.05);
+          box-shadow: 0px 5px 5px rgba(0, 0, 0, 0.05);
+  top: 0;
 }
 
 .nav__menu {

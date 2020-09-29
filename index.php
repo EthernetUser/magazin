@@ -1,3 +1,6 @@
+<?php
+    require('php/connection.php')
+?>
 <!DOCTYPE html>
 <html lang="ru">
 
@@ -10,6 +13,7 @@
 
 <body>
     <div class="wrapper">
+
         <!-- Шапка сайта -->
         <? require('components/header.php'); ?>
         
@@ -26,45 +30,15 @@
                     <h1 class="main__subject subject">Главная</h1>
                 </div>
                 <div class="main__body content">
-                    <div class="content__item">
+                    <?php
+                        for($i = 0; $i < 10; $i++):
+                    ?>
 
-                    </div>
-                    <div class="content__item">
-
-                    </div>
-                    <div class="content__item">
-
-                    </div>
-                    <div class="content__item">
-
-                    </div>
-                    <div class="content__item">
-
-                    </div>
-                    <div class="content__item">
-
-                    </div>
-                    <div class="content__item">
-
-                    </div>
-                    <div class="content__item">
-
-                    </div>
-                    <div class="content__item">
-
-                    </div>
-                    <div class="content__item">
-
-                    </div>
-                    <div class="content__item">
-
-                    </div>
-                    <div class="content__item">
-
-                    </div>
-                    <div class="content__item">
-
-                    </div>
+                    <div class="content__item"></div>
+                    
+                    <?php
+                        endfor;
+                    ?>
                     <div class="content__fixclear">
 
                     </div>

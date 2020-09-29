@@ -4,9 +4,13 @@
             <h1 class="sidebar__subject subject">Боковая панель</h1>
         </div>
         <div class="sidebar__body">
-            <div class="sidebar__item"></div>
-            <div class="sidebar__item"></div>
-            <div class="sidebar__item"></div>
+            <?
+            for($i = 0; $i < 3; $i++):
+            ?>
+            <div class="sidebar__item"><?=$i?></div>
+            <?
+            endfor; 
+            ?>
         </div>
     </div>
 </aside>
