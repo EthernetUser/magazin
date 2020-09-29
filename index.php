@@ -1,5 +1,5 @@
 <?php
-    require('php/connection.php')
+    require('php/connection.php');
 ?>
 <!DOCTYPE html>
 <html lang="ru">
@@ -35,7 +35,7 @@
                     ?>
 
                     <div class="content__item"></div>
-                    
+
                     <?php
                         endfor;
                     ?>

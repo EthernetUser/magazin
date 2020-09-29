@@ -72,6 +72,9 @@ html, body {
 }
 
 .menu__item a {
+  -webkit-transition: .25s;
+  -o-transition: .25s;
+  transition: .25s;
   display: block;
   padding: 10px;
   font-size: 15px;
@@ -83,9 +86,13 @@ html, body {
 .menu__item a:hover {
   color: white;
   background: #000;
-  -webkit-transition: .25s;
-  -o-transition: .25s;
-  transition: .25s;
+}
+
+.menu__item a:active {
+  background: #8d8d8d;
+  -webkit-transition: .0s;
+  -o-transition: .0s;
+  transition: .0s;
 }
 
 .sidebar {
@@ -274,5 +281,89 @@ html, body {
   margin-top: 5px;
   margin-bottom: 5px;
   margin-right: 20px;
+}
+
+.login {
+  margin: 0 auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.login__form {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  padding: 30px;
+  border: 1px solid #e2e2e2;
+  border-radius: 20px;
+  background: white;
+  -webkit-box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+          box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+}
+
+.login__label {
+  margin: 10px 0px;
+  font-size: 20px;
+}
+
+.login__text {
+  margin: 10px 0px;
+  border-radius: 10px;
+  outline: none;
+  padding: 0px 5px;
+  border: 1px solid black;
+  -webkit-box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.2);
+          box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.2);
+  -webkit-transition: .25s;
+  -o-transition: .25s;
+  transition: .25s;
+}
+
+.login__text:focus {
+  padding: 0px 40px;
+}
+
+.login__button {
+  margin: 10px 0px;
+  background: white;
+  padding: 5px 20px;
+  border-radius: 15px;
+  font-size: 15px;
+  border: 1px solid black;
+  -webkit-box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.2);
+          box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.2);
+  text-decoration: none;
+  color: black;
+  cursor: pointer;
+  outline: none;
+  -webkit-transition: .25s;
+  -o-transition: .25s;
+  transition: .25s;
+}
+
+.login__button:hover {
+  background: #000;
+  color: white;
+}
+
+.login__button:active {
+  background: #8d8d8d;
+  -webkit-transition: .0s;
+  -o-transition: .0s;
+  transition: .0s;
 }
 /*# sourceMappingURL=style.css.map */
