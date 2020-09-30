@@ -1,24 +1,77 @@
 <?php
-    session_start();
-    require('../php/connection.php');
+session_start();
+if (!$_SESSION['user']) {
+    header('Location: login.php');
+}
 ?>
 <!DOCTYPE html>
 <html lang="ru">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login</title>
+    <title>Административная панель</title>
     <link rel="stylesheet" href="../css/style.css">
 </head>
+
 <body>
-    <div class="login">
-        <form action="" method="post" class="login__form">
-            <label for="" class="login__label">Административная панель</label>
-            <input type="text" class="login__text" required>
-            <input type="password" class="login__text" required>
-            <input type="submit" class="login__button" value="Войти">
-            <a href="../" class="login__button">Назад</a>
-        </form>
+    <div class="adminwrapper">
+        <? require('components/header.php');?>
+
+        <? require('components/navigation.php');?>
+
+        <main class="main">
+            <div class="main__container">
+                <div class="main__header">
+                    <h1 class="main__subject subject">Главная</h1>
+                </div>
+                <div class="main__body content">
+                    <?php
+                    for ($i = 0; $i < 10; $i++) :
+                    ?>
+
+                        <div class="content__item"></div>
+
+                    <?php
+                    endfor;
+                    ?>
+                    <div class="content__fixclear">
+
+                    </div>
+                    <div class="content__fixclear">
+
+                    </div>
+                    <div class="content__fixclear">
+
+                    </div>
+                    <div class="content__fixclear">
+
+                    </div>
+                    <div class="content__fixclear">
+
+                    </div>
+                    <div class="content__fixclear">
+
+                    </div>
+                    <div class="content__fixclear">
+
+                    </div>
+                    <div class="content__fixclear">
+
+                    </div>
+                    <div class="content__fixclear">
+
+                    </div>
+                    <div class="content__fixclear">
+
+                    </div>
+                </div>
+                <div class="main__footer pagination">
+                    <button class="pagination__button" onclick="">Показать ещё</button>
+                </div>
+            </div>
+        </main>
     </div>
 </body>
+
 </html>

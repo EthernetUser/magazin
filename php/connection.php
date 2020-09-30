@@ -1,7 +1,2 @@
 <?php
-try{
-    $db = new PDO('mysql:host=localhost;dbname=magazin_shop', 'root', '');
-} catch(PDOException $e) {
-    print "Error!: " . $e->getMessage() . "<br/>";
-    die();
-}
+$connection = mysqli_connect('localhost', 'root', '', 'magazin_shop');
