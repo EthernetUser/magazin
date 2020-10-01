@@ -1,8 +1,7 @@
 <?php
 session_start();
-if (!$_SESSION['user']) {
-    header('Location: login.php');
-}
+require('../php/connection.php');
+CheckAvailability();
 ?>
 <!DOCTYPE html>
 <html lang="ru">
@@ -26,7 +25,7 @@ if (!$_SESSION['user']) {
                     <h1 class="main__subject subject">Добавить товар</h1>
                 </div>
                 <div class="main__body addgoods">
-                    <form action="php/addgoods-script.php" method="post" class="addgoods__form">
+                    <form action="php/addgoods-script.php" method="post" class="addgoods__form" enctype="multipart/form-data">
                         <label for="" class="addgoods__label">Название:</label>
                         <input type="text" name="name" class="addgoods__text" required>
                         <label for="" class="addgoods__label">Картинка:</label>
@@ -44,3 +43,6 @@ if (!$_SESSION['user']) {
 </body>
 
 </html>
+<?php
+    mysqli_close($connection);
+?>

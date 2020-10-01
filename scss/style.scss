@@ -41,7 +41,7 @@ html, body{
     padding: 10px 0px;
     align-items: center;
     &__header{
-
+        font-size: 20px;
     }
     &__button{
         background: white;
@@ -98,8 +98,8 @@ html, body{
                 background: #000;
             }
             &:active{
-                background: rgb(141, 141, 141);
-                transition: .0s;
+                background: rgb(224, 224, 224);
+                transition: .10s;
             }
         }
     }
@@ -123,7 +123,14 @@ html, body{
         border-top-right-radius: 0px;
         border-bottom-right-radius: 0px;
     }
-
+    &__title {
+        text-align: center;
+    }
+    &__link{
+        margin-top: 10px;
+        align-self: flex-end;
+        font-size: 14px;
+    }
     &__header {
         margin-top: 10px;
     }
@@ -143,12 +150,15 @@ html, body{
     &__item {
         margin-top: 10px;
         width: 100%;
-        height: 90px;
+        height: auto;
         background: rgb(249, 249, 249);
         border: 1px solid rgba($color: #d8d8d8, $alpha: 1.0);
         border-radius: 10px;
         box-shadow: 0px 0px 10px rgba($color: #000000, $alpha: 0.07);
-
+        display: flex;
+        flex-direction: column;
+        padding: 5px 5px;
+        align-items: center;
         &:last-child{
             margin-bottom: 20px;
         }
@@ -213,21 +223,70 @@ html, body{
     justify-content: space-around;
     flex-wrap: wrap;
     width: 100%;
+    height: auto;
+    user-select: none;
+    cursor: pointer;
+    
+    
     &__item {
         background: rgb(249, 249, 249);
         border: 1px solid rgba($color: #d8d8d8, $alpha: 1.0);
         border-radius: 10px;
         box-shadow: 0px 0px 10px rgba($color: #000000, $alpha: 0.07);
-        width: 150px;
-        height: 200px;
-        margin: 10px ;
+        width: 200px;
+        height: auto;
+        margin: 10px 10px;
+        padding: 10px 10px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        transition: .25s ease-in;
+        
+        &:hover{
+            background: rgb(172, 172, 172);
+            width: 200px;
+            margin: 0px 10px;
+            padding: 20px 10px;
+        }
+        
+        &:active{
+            transition: .10s;
+            padding: 10px 10px;
+            margin: 10px 10px;
+            background: rgb(224, 224, 224);
+        }
     }
 
     &__fixclear{
-        margin: 0px 10px;
-        width: 150px;
+        margin: 0px 0px;
+        width: 220px;
+    }
+
+    &__name {
+        word-wrap: break-word;
+        margin-top: 15px;
+        font-size: 18px;
+        width: 100%;
+        text-align: center;
+    }
+
+    &__description {
+        word-wrap: break-word;
+        margin-top: 20px;
+        width: 100%;
+    }
+
+    &__img {
+        margin-top: 10px;
+    }
+
+    &__price {
+        margin-top: 20px;
+        width: 100%;
+        text-align: left;
     }
 }
+
 
 .footer {
     grid-area: footer;

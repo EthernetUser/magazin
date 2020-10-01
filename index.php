@@ -31,13 +31,13 @@
                 </div>
                 <div class="main__body content">
                     <?php
-                        for($i = 0; $i < 10; $i++):
-                    ?>
-
-                    <div class="content__item"></div>
-
-                    <?php
-                        endfor;
+                        if(!$query = mysqli_query($connection,"SELECT * FROM `goods` ORDER BY `id` DESC")) {
+                            echo 'server error!';
+                        }
+                        
+                        while ($goods = mysqli_fetch_assoc($query)) {
+                            require('components/conent_item.php');
+                        }
                     ?>
                     <div class="content__fixclear">
 
@@ -82,3 +82,6 @@
 </body>
 
 </html>
+<?php
+    mysqli_close($connection);
+?>

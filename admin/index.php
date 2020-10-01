@@ -1,8 +1,7 @@
 <?php
 session_start();
-if (!$_SESSION['user']) {
-    header('Location: login.php');
-}
+require('../php/connection.php');
+CheckAvailability();
 ?>
 <!DOCTYPE html>
 <html lang="ru">
@@ -27,13 +26,13 @@ if (!$_SESSION['user']) {
                 </div>
                 <div class="main__body content">
                     <?php
-                    for ($i = 0; $i < 10; $i++) :
-                    ?>
+                    if(!$query = mysqli_query($connection,"SELECT * FROM `goods` ORDER BY `id` DESC")){
+                        echo 'server error!';
+                    }
 
-                        <div class="content__item"></div>
-
-                    <?php
-                    endfor;
+                    while ($goods = mysqli_fetch_assoc($query)){
+                        require('components/content_item.php');
+                    } 
                     ?>
                     <div class="content__fixclear">
 
@@ -75,3 +74,6 @@ if (!$_SESSION['user']) {
 </body>
 
 </html>
+<?php
+    mysqli_close($connection);
+?>

@@ -1,13 +1,8 @@
 <?php
 session_start();
 require('../php/connection.php');
-if (!$_SESSION['id'] || !$_SESSION['role']) {
-    header('Location: login.php');
-}
-
-if($_SESSION['role'] !== 'admin'){
-    header('Location: login.php');
-}
+CheckAvailability();
+CheckRole('admin');
 ?>
 <!DOCTYPE html>
 <html lang="ru">
@@ -39,7 +34,7 @@ if($_SESSION['role'] !== 'admin'){
                         <label for="pass" class="addgoods__label">password:</label>
                         <input type="password" name="pass" class="addgoods__text" id="pass" required>
                         <label for="role" class="addgoods__label">role</label>
-                        <select name="role" id="" class="addgoods__text" id="role" required>
+                        <select name="role" id="role" class="addgoods__text" id="role" required>
                             <option value="admin">admin</option>
                             <option value="moderator">moderator</option>
                         </select>
@@ -53,3 +48,6 @@ if($_SESSION['role'] !== 'admin'){
 </body>
 
 </html>
+<?php
+    mysqli_close($connection);
+?>
