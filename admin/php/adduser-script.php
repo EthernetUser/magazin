@@ -34,6 +34,7 @@ if($query = mysqli_query($connection, "SELECT * FROM `users` WHERE `email` = '$e
     mysqli_close($connection);
     header('Location: ../index.php');
 } else {
+    // ошибка запроса
     echo 'query error!';
     mysqli_close($connection);
 }
