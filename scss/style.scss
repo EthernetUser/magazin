@@ -225,7 +225,7 @@ html, body{
     width: 100%;
     height: auto;
     user-select: none;
-    cursor: pointer;
+    
     
     
     &__item {
@@ -239,8 +239,10 @@ html, body{
         padding: 10px 10px;
         display: flex;
         flex-direction: column;
+        justify-content: space-between;
         align-items: center;
         transition: .25s ease-in;
+        cursor: pointer;
         
         &:hover{
             background: rgb(172, 172, 172);
@@ -256,6 +258,13 @@ html, body{
             background: rgb(224, 224, 224);
         }
     }
+    &__link{
+        height: auto;
+        width: auto;
+        display: contents;
+        color:currentColor;
+        text-decoration: none;
+    }
 
     &__fixclear{
         margin: 0px 0px;
@@ -268,6 +277,7 @@ html, body{
         font-size: 18px;
         width: 100%;
         text-align: center;
+        text-decoration: none;
     }
 
     &__description {

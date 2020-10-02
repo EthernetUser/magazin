@@ -7,7 +7,7 @@ $subject = trim($_POST['subject']);
 $text = trim($_POST['text']);
 
 if(empty($subject) || empty($text)) {
-    echo 'empty rows!';
+    echo 'empty rows! ';
     exit();
     mysqli_close($connection);
 }

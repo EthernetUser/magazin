@@ -309,7 +309,6 @@ html, body {
      -moz-user-select: none;
       -ms-user-select: none;
           user-select: none;
-  cursor: pointer;
 }
 
 .content__item {
@@ -329,12 +328,16 @@ html, body {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
   -webkit-transition: .25s ease-in;
   -o-transition: .25s ease-in;
   transition: .25s ease-in;
+  cursor: pointer;
 }
 
 .content__item:hover {
@@ -353,6 +356,14 @@ html, body {
   background: #e0e0e0;
 }
 
+.content__link {
+  height: auto;
+  width: auto;
+  display: contents;
+  color: currentColor;
+  text-decoration: none;
+}
+
 .content__fixclear {
   margin: 0px 0px;
   width: 220px;
@@ -364,6 +375,7 @@ html, body {
   font-size: 18px;
   width: 100%;
   text-align: center;
+  text-decoration: none;
 }
 
 .content__description {
