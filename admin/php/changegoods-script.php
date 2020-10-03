@@ -9,17 +9,17 @@ $description = trim($_POST['description']);
 $price = trim($_POST['price']);
 $id = trim($_POST['id']);
 
-if(empty($name) || empty($description) || empty($price) || empty($id)) {
-    echo 'empty rows! ';
-    mysqli_close($connection);
-    exit();
-}
-
 // поддерживаемые типы файла
 $types = array('image/jpeg', 'image/png', 'image/jpg');
 
 // максимальный размер файла в байтах
 $size = 1024000;
+
+if(empty($name) || empty($description) || empty($price) || empty($id)) {
+    echo 'empty rows! ';
+    mysqli_close($connection);
+    exit();
+}
 
 // проверка типа файла
 if(!in_array($img['type'], $types) && $img['type'] !== ""){
@@ -37,24 +37,31 @@ if($img['size'] > $size) {
 
 $path = 'img/goods/' . date('dmYHis') . $img['name'];
 
+// обновление данных в бд
 if(!$query = mysqli_query($connection,"UPDATE `goods` SET `name` = '$name', `description` = '$description', `price` = '$price' WHERE `id` = '$id'")){
     echo 'query error!';
     mysqli_close($connection);
     exit();
 }
 
+// проверка успешность загрузки файла во временный файл
 if($img['error'] === 0) {
+
+    // получение пути к старому файлу
     $query = mysqli_query($connection,"SELECT `img-path` FROM `goods` WHERE `id` = '$id'");
     $oldPath = mysqli_fetch_assoc($query);
 
+    // удаление старого файла
     unlink('../../' . $oldPath['img-path']);
 
+    // внесение пути к новому файлу
     if(!$query = mysqli_query($connection,"UPDATE `goods` SET `img-path` = '$path' WHERE `id` = '$id'")){
         echo 'query error!';
         mysqli_close($connection);
         exit();
     }
 
+    // загрузка нового файла на сервер
     copy($img['tmp_name'], '../../' . $path);
 
     mysqli_close($connection);

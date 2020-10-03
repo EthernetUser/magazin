@@ -42,13 +42,17 @@ $goods = mysqli_fetch_assoc($query);
                         <label for="" class="addgoods__label">Название:</label>
                         <input type="text" name="name" class="addgoods__text" value="<?=$goods['name']?>" required>
                         <label for="" class="addgoods__label">Картинка:</label>
+                        <p class="addgoods__littletxt">(Если менять картинку не нужно - оставьте поле пустым)</p>
                         <input type="file" name="img" class="addgoods__file">
                         <label for="" class="addgoods__label">Описание:</label>
                         <textarea name="description" class="addgoods__textarea" id="" cols="30" rows="10" required><?=$goods['description']?></textarea>
                         <label for="" class="addgoods__label">Цена:</label>
                         <input type="number" name="price" class="addgoods__text" value="<?=$goods['price']?>" required>
-                        <input type="hidden" name="id" value="<?=$goods['id']?>">
-                        <input type="submit" value="Изменить" class="addgoods__button">
+                        <input type="hidden" name="id" id="id" value="<?=$goods['id']?>">
+                        <div>
+                            <input type="submit" value="Изменить" class="addgoods__button">
+                            <input type="button" value="Удалить" class="addgoods__button-delete" onclick="DeleteGoods()">
+                        </div>
                     </form>
                 </div>
             </div>

@@ -11,6 +11,10 @@
   font-family: Montserrat;
 }
 
+html {
+  overflow-y: scroll;
+}
+
 html, body {
   height: 100%;
   width: 100%;
@@ -110,6 +114,11 @@ html, body {
   display: flex;
   -ms-flex-pack: distribute;
       justify-content: space-around;
+  margin: 10px 0px;
+}
+
+.menu h1 {
+  margin: 0;
 }
 
 .menu__item {
@@ -126,6 +135,7 @@ html, body {
   text-transform: uppercase;
   text-decoration: none;
   color: #000;
+  border-radius: 20px;
 }
 
 .menu__item a:hover {
@@ -394,6 +404,16 @@ html, body {
   text-align: left;
 }
 
+.news__subject {
+  text-align: center;
+  margin: 10px 0px;
+}
+
+.news__date {
+  text-align: right;
+  margin: 40px 0px;
+}
+
 .footer {
   -ms-grid-row: 4;
   -ms-grid-column: 1;
@@ -554,6 +574,10 @@ html, body {
   margin: 5px 0px;
 }
 
+.addgoods__littletxt {
+  font-size: 12px;
+}
+
 .addgoods__button {
   margin: 10px 0px;
   background: white;
@@ -581,6 +605,37 @@ html, body {
 }
 
 .addgoods__button:active {
+  background: #8d8d8d;
+  -webkit-transition: .0s;
+  -o-transition: .0s;
+  transition: .0s;
+}
+
+.addgoods__button-delete {
+  margin: 10px 0px;
+  background: red;
+  padding: 5px 20px;
+  border-radius: 15px;
+  font-size: 15px;
+  border: 1px solid black;
+  -webkit-box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.2);
+          box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.2);
+  text-decoration: none;
+  color: white;
+  cursor: pointer;
+  outline: none;
+  -webkit-transition: .25s;
+  -o-transition: .25s;
+  transition: .25s;
+  float: right;
+}
+
+.addgoods__button-delete:hover {
+  background: #990101;
+  color: white;
+}
+
+.addgoods__button-delete:active {
   background: #8d8d8d;
   -webkit-transition: .0s;
   -o-transition: .0s;

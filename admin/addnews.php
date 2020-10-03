@@ -32,9 +32,9 @@ CheckAvailability();
                 </div>
                 <div class="main__body addgoods">
                     <form action="php/addnews-script.php" method="post" class="addgoods__form">
-                        <label for="" class="addgoods__label">Заголовок:</label>
+                        <p for="" class="addgoods__label">Заголовок:</p>
                         <input type="text" name="subject" class="addgoods__text" required>
-                        <label for="" class="addgoods__label">Текстa:</label>
+                        <p for="" class="addgoods__label">Текстa:</p>
                         <textarea name="text" class="addgoods__textarea" id="text" cols="30" rows="10" required></textarea>
                         <input type="submit" value="Добавить" class="addgoods__button">
                     </form>

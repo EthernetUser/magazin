@@ -10,12 +10,16 @@
     font-family: Montserrat;
 }
 
+html {
+    overflow-y: scroll;
+}
 html, body{
     height: 100%;
     width: 100%;
     display: flex;
     font-family: Montserrat;
     background: rgb(240, 240, 240);
+    
 }
 
 .wrapper {
@@ -83,6 +87,10 @@ html, body{
 .menu {
     display: flex;
     justify-content: space-around;
+    margin: 10px 0px;
+    h1{
+        margin: 0;
+    }
     &__item {
         list-style: none;
         a{
@@ -93,6 +101,8 @@ html, body{
             text-transform: uppercase;
             text-decoration: none;
             color: #000;
+            border-radius: 20px;
+
             &:hover{
                 color: white;
                 background: #000;
@@ -297,6 +307,16 @@ html, body{
     }
 }
 
+.news{
+    &__subject{
+        text-align: center;
+        margin: 10px 0px;
+    }
+    &__date{
+        text-align: right;
+        margin: 40px 0px;
+    }
+}
 
 .footer {
     grid-area: footer;
@@ -409,6 +429,9 @@ html, body{
     &__textarea{
         margin: 5px 0px;
     }
+    &__littletxt{
+        font-size: 12px;
+    }
     &__button{
         margin: 10px 0px;
         background: white;
@@ -430,6 +453,29 @@ html, body{
         &:active{
             background: rgb(141, 141, 141);
             transition: .0s;
+        }
+        &-delete{
+            margin: 10px 0px;
+            background: red;
+            padding: 5px 20px;
+            border-radius: 15px;
+            font-size: 15px;
+            border: 1px solid rgb(0, 0, 0);
+            box-shadow: 0px 0px 5px rgba($color: #000000, $alpha: 0.2);
+            text-decoration: none;
+            color: rgb(255, 255, 255);
+            cursor: pointer;
+            outline: none;
+            transition: .25s;
+            float: right;
+            &:hover{
+                background: rgb(153, 1, 1);
+                color: white;
+            }
+            &:active{
+                background: rgb(141, 141, 141);
+                transition: .0s;
+            }
         }
     }
 }
