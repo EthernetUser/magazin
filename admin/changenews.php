@@ -52,7 +52,7 @@ $news = mysqli_fetch_assoc($query);
                         <input type="hidden" name="id" id="id" value="<?=$id?>">
                         <div>
                             <input type="submit" value="Изменить" class="addgoods__button">
-                            <input type="button" value="Удалить" class="addgoods__button-delete" onclick="DeleteGoods()">
+                            <input type="button" value="Удалить" class="addgoods__button-delete" onclick="DeleteNews()">
                         </div>
                     </form>
                 </div>

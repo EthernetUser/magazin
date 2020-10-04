@@ -43,7 +43,9 @@
                             <p style="align-self: flex-end;"><?=$news['date']?></p>
                         </div>
                     </a>
-                    <? endwhile; ?>
+                    <?php 
+                    endwhile; 
+                    ?>
                 </div>
             </div>
         </main>

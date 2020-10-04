@@ -6,7 +6,7 @@ function DeleteGoods(){
     }
 }
 
-function DeleteGoods(){
+function DeleteNews(){
     let result = confirm("Новость будет безвозвратно удалена!")
     if(result){
         const id = document.querySelector('#id').value
