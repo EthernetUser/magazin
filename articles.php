@@ -1,20 +1,5 @@
 <?php
-require('php/connection.php');
-$id = $_GET['id'];
-if(!isset($id) || empty($id)){
-    header('Location: /');
-}
-$id = intval($id);
-if(!$query = mysqli_query($connection,"SELECT * FROM `news` WHERE `id` = '$id'")) {
-    echo 'query error!';
-    mysqli_close($connection);
-    exit();
-}
-if($query->num_rows !== null && $query->num_rows !== 0){
-    $currentNews = mysqli_fetch_assoc($query);
-} else {
-    header('Location: /');
-}
+require('php/connection.php')
 ?>
 <!DOCTYPE html>
 <html lang="ru">
@@ -34,23 +19,33 @@ if($query->num_rows !== null && $query->num_rows !== 0){
 
         <!-- Шапка сайта -->
         <? require('components/header.php'); ?>
-        
+
         <!-- Навигация сайта -->
         <? require('components/navigation.php'); ?>
-        
+
         <!-- Боковая панель  -->
         <? require('components/sidebar.php'); ?>
-        
+
         <!-- Контентная часть -->
         <main class="main">
             <div class="main__container">
                 <div class="main__header">
-                    <h1 class="main__subject subject">Новости</h1>
+                    <h1 class="main__subject subject">Статьи</h1>
                 </div>
-                <div class="main__body news">
-                    <h2 class="news__subject"><?=$currentNews['subject']?></h2>
-                    <p class="news__date">Дата публикации: <?=$currentNews['date']?></p>
-                    <div class="news__text"><?=$currentNews['text']?></div>
+                <div class="main__body list">
+                    <?php
+                    $query = mysqli_query($connection, "SELECT * FROM `articles` ORDER BY `id` DESC");
+                    while ($articles = mysqli_fetch_assoc($query)) :
+                    ?>
+                        <a href="articlespost?id=<?= $articles['id'] ?>" class="list__link">
+                            <div class="list__item">
+                                <h4><?= $articles['subject'] ?></h4>
+                                <p style="align-self: flex-end;"><?= $articles['date'] ?></p>
+                            </div>
+                        </a>
+                    <?php
+                    endwhile;
+                    ?>
                 </div>
             </div>
         </main>
@@ -62,5 +57,5 @@ if($query->num_rows !== null && $query->num_rows !== 0){
 
 </html>
 <?php
-    mysqli_close($connection);
+mysqli_close($connection);
 ?>

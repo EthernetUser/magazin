@@ -28,10 +28,10 @@ CheckAvailability();
         <main class="main">
             <div class="main__container">
                 <div class="main__header">
-                    <h1 class="main__subject subject">Добавить новость</h1>
+                    <h1 class="main__subject subject">Добавить статью</h1>
                 </div>
                 <div class="main__body addgoods">
-                    <form action="php/addnews-script.php" method="post" class="addgoods__form">
+                    <form action="php/addarticles-script.php" method="post" class="addgoods__form">
                         <label for="" class="addgoods__label">Заголовок:</label>
                         <input type="text" name="subject" class="addgoods__text" required>
                         <label for="" class="addgoods__label">Текст:</label>
@@ -47,5 +47,5 @@ CheckAvailability();
 
 </html>
 <?php
-    mysqli_close($connection);
+mysqli_close($connection);
 ?>

@@ -3,12 +3,12 @@ session_start();
 require('../php/connection.php');
 CheckAvailability();
 $id = $_GET['id'];
-if(!isset($id) || empty($id)){
+if (!isset($id) || empty($id)) {
     echo 'wrong get request!';
     mysqli_close($connection);
     exit();
 }
-if(!$query = mysqli_query($connection,"SELECT * FROM `news` WHERE `id` = '$id'")) {
+if (!$query = mysqli_query($connection, "SELECT * FROM `news` WHERE `id` = '$id'")) {
     echo 'query error!';
     var_dump($query);
     mysqli_close($connection);
@@ -46,10 +46,10 @@ $news = mysqli_fetch_assoc($query);
                 <div class="main__body addgoods">
                     <form action="php/changenews-script.php" method="post" class="addgoods__form">
                         <p for="" class="addgoods__label">Заголовок:</p>
-                        <input type="text" name="subject" class="addgoods__text" value="<?=$news['subject']?>" required>
-                        <p for="" class="addgoods__label">Текстa:</p>
-                        <textarea name="text" class="addgoods__textarea" id="text" cols="30" rows="10" required><?=$news['text']?></textarea>
-                        <input type="hidden" name="id" id="id" value="<?=$id?>">
+                        <input type="text" name="subject" class="addgoods__text" value="<?= $news['subject'] ?>" required>
+                        <p for="" class="addgoods__label">Текст:</p>
+                        <textarea name="text" class="addgoods__textarea" id="text" cols="30" rows="10" required><?= $news['text'] ?></textarea>
+                        <input type="hidden" name="id" id="id" value="<?= $id ?>">
                         <div>
                             <input type="submit" value="Изменить" class="addgoods__button">
                             <input type="button" value="Удалить" class="addgoods__button-delete" onclick="DeleteNews()">
@@ -65,5 +65,5 @@ $news = mysqli_fetch_assoc($query);
 
 </html>
 <?php
-    mysqli_close($connection);
+mysqli_close($connection);
 ?>

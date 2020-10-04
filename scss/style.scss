@@ -155,7 +155,8 @@ html, body{
         border-bottom-right-radius: 0px;
     }
     &__title {
-        text-align: center;
+        text-align: left;
+        font-size: 14px;
     }
     &__link{
         margin-top: 10px;
@@ -189,7 +190,7 @@ html, body{
         display: flex;
         flex-direction: column;
         padding: 5px 5px;
-        align-items: center;
+        align-items: flex-start;
         &:last-child{
             margin-bottom: 20px;
         }
@@ -373,12 +374,16 @@ html, body{
 
 .news{
     &__subject{
-        text-align: center;
+        text-align: left;
         margin: 10px 0px;
+        font-weight: bold;
+    }
+    &__text{
+        margin: 0px 0px 40px 0px;
     }
     &__date{
-        text-align: right;
-        margin: 40px 0px;
+        text-align: left;
+        margin: 10px 0px 30px 0px;
     }
 }
 
