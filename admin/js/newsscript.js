@@ -1,6 +1,6 @@
 jQuery(function(){
     $('#text').summernote({
-        height: 300,
+        height: 400,
         lang: 'ru-RU'
     });
 

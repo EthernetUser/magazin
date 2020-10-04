@@ -11,6 +11,7 @@ if(!isset($id) || empty($id)){
     exit();
 }
 
+// получение пути к файлу
 if(!$query = mysqli_query($connection, "SELECT `img-path` FROM `goods` WHERE `id` = '$id'")) {
     echo 'query error';
     mysqli_close($connection);
@@ -19,8 +20,10 @@ if(!$query = mysqli_query($connection, "SELECT `img-path` FROM `goods` WHERE `id
 
 $path = mysqli_fetch_assoc($query);
 
+// удаление файла
 unlink('../../' . $path['img-path']);
 
+// удаление товара из бд
 if(!$query = mysqli_query($connection, "DELETE FROM `goods` WHERE `id` = '$id'")) {
     echo 'query error';
     mysqli_close($connection);

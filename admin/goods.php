@@ -24,21 +24,18 @@ CheckAvailability();
         <main class="main">
             <div class="main__container">
                 <div class="main__header">
-                    <h1 class="main__subject subject">Главная</h1>
+                    <h1 class="main__subject subject">Управление товарами</h1>
                 </div>
                 <div class="main__body content">
-                    <a class="content__link" href="goods.php">
-                        <div class="content__item">
-                            <h5 class="content__name">Управление товарами</h5>
-                            <p class="content__description"></p>
-                        </div>
-                    </a>
-                    <a class="content__link" href="news.php">
-                        <div class="content__item">
-                            <h5 class="content__name">Управление новостями</h5>
-                            <p class="content__description"></p>
-                        </div>
-                    </a>
+                    <?php
+                    if(!$query = mysqli_query($connection,"SELECT * FROM `goods` ORDER BY `id` DESC")){
+                        echo 'server error!';
+                    }
+
+                    while ($goods = mysqli_fetch_assoc($query)){
+                        require('components/content_item.php');
+                    } 
+                    ?>
                     <div class="content__fixclear">
 
                     </div>
@@ -71,6 +68,7 @@ CheckAvailability();
                     </div>
                 </div>
                 <div class="main__footer pagination">
+                    <button class="pagination__button" onclick="">Показать ещё</button>
                 </div>
             </div>
         </main>
@@ -79,5 +77,5 @@ CheckAvailability();
 
 </html>
 <?php
-mysqli_close($connection);
+    mysqli_close($connection);
 ?>

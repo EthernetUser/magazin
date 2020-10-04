@@ -10,8 +10,8 @@ CheckAvailability();
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Административная панель</title>
-    <link href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" rel="stylesheet">
     <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" rel="stylesheet">
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
     <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.js"></script>
@@ -32,9 +32,9 @@ CheckAvailability();
                 </div>
                 <div class="main__body addgoods">
                     <form action="php/addnews-script.php" method="post" class="addgoods__form">
-                        <p for="" class="addgoods__label">Заголовок:</p>
+                        <label for="" class="addgoods__label">Заголовок:</label>
                         <input type="text" name="subject" class="addgoods__text" required>
-                        <p for="" class="addgoods__label">Текстa:</p>
+                        <label for="" class="addgoods__label">Текстa:</label>
                         <textarea name="text" class="addgoods__textarea" id="text" cols="30" rows="10" required></textarea>
                         <input type="submit" value="Добавить" class="addgoods__button">
                     </form>

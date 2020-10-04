@@ -5,7 +5,7 @@
         </div>
         <div class="sidebar__body">
             <?
-            if(!$query = mysqli_query($connection,"SELECT * FROM `news` ORDER BY `id` DESC")) {
+            if(!$query = mysqli_query($connection,"SELECT * FROM `news` ORDER BY `id` DESC LIMIT 3")) {
                 echo 'server error!';
             }
             
