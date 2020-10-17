@@ -42,39 +42,10 @@
                             require('components/conent_item.php');
                         }
                     ?>
-                    <div class="content__fixclear">
-
-                    </div>
-                    <div class="content__fixclear">
-
-                    </div>
-                    <div class="content__fixclear">
-
-                    </div>
-                    <div class="content__fixclear">
-
-                    </div>
-                    <div class="content__fixclear">
-
-                    </div>
-                    <div class="content__fixclear">
-
-                    </div>
-                    <div class="content__fixclear">
-
-                    </div>
-                    <div class="content__fixclear">
-
-                    </div>
-                    <div class="content__fixclear">
-
-                    </div>
-                    <div class="content__fixclear">
-
-                    </div>
+                    
                 </div>
                 <div class="main__footer pagination">
-                    <button class="pagination__button" onclick="">Показать ещё</button>
+                    <button class="pagination__button" onclick="">Все товары</button>
                 </div>
             </div>
         </main>
