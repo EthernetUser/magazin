@@ -39,36 +39,13 @@ CheckAvailability();
                             <p class="content__description"></p>
                         </div>
                     </a>
-                    <div class="content__fixclear">
-
-                    </div>
-                    <div class="content__fixclear">
-
-                    </div>
-                    <div class="content__fixclear">
-
-                    </div>
-                    <div class="content__fixclear">
-
-                    </div>
-                    <div class="content__fixclear">
-
-                    </div>
-                    <div class="content__fixclear">
-
-                    </div>
-                    <div class="content__fixclear">
-
-                    </div>
-                    <div class="content__fixclear">
-
-                    </div>
-                    <div class="content__fixclear">
-
-                    </div>
-                    <div class="content__fixclear">
-
-                    </div>
+                    <a class="content__link" href="articles.php">
+                        <div class="content__item">
+                            <h5 class="content__name">Управление статьями</h5>
+                            <p class="content__description"></p>
+                        </div>
+                    </a>
+                    
                 </div>
                 <div class="main__footer pagination">
                 </div>

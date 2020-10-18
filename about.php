@@ -29,12 +29,14 @@
         <!-- Контентная часть -->
         <main class="main">
             <div class="main__container">
-                <div class="main__header">
-                    <h1 class="main__subject subject">О нас</h1>
-                </div>
-                <div class="main__body content">
-                    
-                </div>
+                <section>
+                    <div class="main__header">
+                        <h1 class="main__subject subject">О нас</h1>
+                    </div>
+                    <div class="main__body content">
+                        
+                    </div>
+                </section>
             </div>
         </main>
 

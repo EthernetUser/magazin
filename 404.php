@@ -1,5 +1,5 @@
 <?php
-    require('php/connection.php')
+require('php/connection.php');
 ?>
 <!DOCTYPE html>
 <html lang="ru">
@@ -29,14 +29,10 @@
         <!-- Контентная часть -->
         <main class="main">
             <div class="main__container">
-                <section>
-                    <div class="main__header">
-                        <h1 class="main__subject subject">Товары</h1>
-                    </div>
-                    <div class="main__body content">
-                        
-                    </div>
-                </section>
+                <div class="main__header">
+                    
+                </div>
+                <h1>Ошибка 404! Данной страницы не сушествует.</h1>
             </div>
         </main>
 

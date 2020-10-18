@@ -1,5 +1,20 @@
 <?php
-    require('php/connection.php')
+require('php/connection.php');
+$id = $_GET['id'];
+if(!isset($id) || empty($id)){
+    header('Location: /');
+}
+$id = intval($id);
+if(!$query = mysqli_query($connection,"SELECT * FROM `articles` WHERE `id` = '$id'")) {
+    echo 'query error!';
+    mysqli_close($connection);
+    exit();
+}
+if($query->num_rows !== null && $query->num_rows !== 0){
+    $currentArticles = mysqli_fetch_assoc($query);
+} else {
+    header('Location: 404');
+}
 ?>
 <!DOCTYPE html>
 <html lang="ru">
@@ -31,10 +46,12 @@
             <div class="main__container">
                 <section>
                     <div class="main__header">
-                        <h1 class="main__subject subject">Товары</h1>
+                        <h1 class="main__subject subject">Статьи</h1>
                     </div>
-                    <div class="main__body content">
-                        
+                    <div class="main__body news">
+                        <h2 class="news__subject"><?=$currentArticles['subject']?></h2>
+                        <p class="news__date">Дата публикации: <?=$currentArticles['date']?></p>
+                        <div class="news__text"><?=$currentArticles['text']?></div>
                     </div>
                 </section>
             </div>

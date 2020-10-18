@@ -1,5 +1,5 @@
 <?php
-    require('php/connection.php');
+require('php/connection.php');
 ?>
 <!DOCTYPE html>
 <html lang="ru">
@@ -19,34 +19,67 @@
 
         <!-- Шапка сайта -->
         <? require('components/header.php'); ?>
-        
+
         <!-- Навигация сайта -->
         <? require('components/navigation.php'); ?>
-        
+
         <!-- Боковая панель  -->
         <? require('components/sidebar.php'); ?>
-        
+
         <!-- Контентная часть -->
         <main class="main">
             <div class="main__container">
-                <div class="main__header">
-                    <h1 class="main__subject subject">Главная</h1>
-                </div>
-                <div class="main__body content">
-                    <?php
-                        if(!$query = mysqli_query($connection,"SELECT * FROM `goods` ORDER BY `id` DESC")) {
+                <section>
+
+                    <div class="main__header">
+                        <h1 class="main__subject subject">Статьи</h1>
+                    </div>
+                    <div class="main__body list">
+                        <?php
+                        if (!$query = mysqli_query($connection, "SELECT * FROM `articles` ORDER BY `id` DESC LIMIT 3")) {
                             echo 'server error!';
                         }
-                        
+    
+                        while ($articles = mysqli_fetch_assoc($query)) {
+                        ?>
+    
+                            <a href="articlespost?id=<?= $articles['id'] ?>" class="list__link">
+                                <div class="list__item">
+                                    <h4><?= $articles['subject'] ?></h4>
+                                    <p style="align-self: flex-end;"><?= $articles['date'] ?></p>
+                                </div>
+                            </a>
+    
+                        <?php
+                        }
+                        ?>
+                    </div>
+                    <div class="main__footer pagination">
+                        <!-- <button class="pagination__button" onclick="">Все статьи</button> -->
+                        <a href="articles" class="pagination__button"> Все статьи</a>
+                    </div>
+                </section>
+                <section>
+
+                    <div class="main__header">
+                        <h1 class="main__subject subject">Товары</h1>
+                    </div>
+                    <div class="main__body content">
+                        <?php
+                        if (!$query = mysqli_query($connection, "SELECT * FROM `goods` ORDER BY `id` DESC LIMIT 6")) {
+                            echo 'server error!';
+                        }
+    
                         while ($goods = mysqli_fetch_assoc($query)) {
                             require('components/conent_item.php');
                         }
-                    ?>
-                    
-                </div>
-                <div class="main__footer pagination">
-                    <button class="pagination__button" onclick="">Все товары</button>
-                </div>
+                        ?>
+    
+                    </div>
+                    <div class="main__footer pagination">
+                    <a href="goods" class="pagination__button"> Все товары</a>
+                    </div>
+                </section>
             </div>
         </main>
 
@@ -57,5 +90,5 @@
 
 </html>
 <?php
-    mysqli_close($connection);
+mysqli_close($connection);
 ?>

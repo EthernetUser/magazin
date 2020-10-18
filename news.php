@@ -29,24 +29,26 @@ require('php/connection.php')
         <!-- Контентная часть -->
         <main class="main">
             <div class="main__container">
-                <div class="main__header">
-                    <h1 class="main__subject subject">Новости</h1>
-                </div>
-                <div class="main__body list">
-                    <?php
-                    $query = mysqli_query($connection, "SELECT * FROM `news` ORDER BY `id` DESC");
-                    while ($news = mysqli_fetch_assoc($query)) :
-                    ?>
-                        <a href="newspost?id=<?= $news['id'] ?>" class="list__link">
-                            <div class="list__item">
-                                <h4><?= $news['subject'] ?></h4>
-                                <p style="align-self: flex-end;"><?= $news['date'] ?></p>
-                            </div>
-                        </a>
-                    <?php
-                    endwhile;
-                    ?>
-                </div>
+                <section>
+                    <div class="main__header">
+                        <h1 class="main__subject subject">Новости</h1>
+                    </div>
+                    <div class="main__body list">
+                        <?php
+                        $query = mysqli_query($connection, "SELECT * FROM `news` ORDER BY `id` DESC");
+                        while ($news = mysqli_fetch_assoc($query)) :
+                        ?>
+                            <a href="newspost?id=<?= $news['id'] ?>" class="list__link">
+                                <div class="list__item">
+                                    <h4><?= $news['subject'] ?></h4>
+                                    <p style="align-self: flex-end;"><?= $news['date'] ?></p>
+                                </div>
+                            </a>
+                        <?php
+                        endwhile;
+                        ?>
+                    </div>
+                </section>
             </div>
         </main>
 

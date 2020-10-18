@@ -13,7 +13,7 @@ if(!$query = mysqli_query($connection,"SELECT * FROM `news` WHERE `id` = '$id'")
 if($query->num_rows !== null && $query->num_rows !== 0){
     $currentNews = mysqli_fetch_assoc($query);
 } else {
-    header('Location: /');
+    header('Location: 404');
 }
 ?>
 <!DOCTYPE html>
@@ -44,14 +44,16 @@ if($query->num_rows !== null && $query->num_rows !== 0){
         <!-- Контентная часть -->
         <main class="main">
             <div class="main__container">
-                <div class="main__header">
-                    <h1 class="main__subject subject">Новости</h1>
-                </div>
-                <div class="main__body news">
-                    <h2 class="news__subject"><?=$currentNews['subject']?></h2>
-                    <p class="news__date">Дата публикации: <?=$currentNews['date']?></p>
-                    <div class="news__text"><?=$currentNews['text']?></div>
-                </div>
+                <section>
+                    <div class="main__header">
+                        <h1 class="main__subject subject">Новости</h1>
+                    </div>
+                    <div class="main__body news">
+                        <h2 class="news__subject"><?=$currentNews['subject']?></h2>
+                        <p class="news__date">Дата публикации: <?=$currentNews['date']?></p>
+                        <div class="news__text"><?=$currentNews['text']?></div>
+                    </div>
+                </section>
             </div>
         </main>
 

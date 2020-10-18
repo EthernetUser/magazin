@@ -17,7 +17,7 @@
 }
 
 ::-webkit-scrollbar-thumb {
-  background-color: #F0F0F0;
+  background-color: #f0f0f0;
 }
 
 ::-webkit-scrollbar-thumb:hover {
@@ -32,7 +32,8 @@ html {
   overflow-y: scroll;
 }
 
-html, body {
+html,
+body {
   height: 100%;
   width: 100%;
   display: -webkit-box;
@@ -86,9 +87,9 @@ html, body {
   color: black;
   cursor: pointer;
   outline: none;
-  -webkit-transition: .25s;
-  -o-transition: .25s;
-  transition: .25s;
+  -webkit-transition: 0.25s;
+  -o-transition: 0.25s;
+  transition: 0.25s;
 }
 
 .header__button:hover {
@@ -98,9 +99,9 @@ html, body {
 
 .header__button:active {
   background: #8d8d8d;
-  -webkit-transition: .0s;
-  -o-transition: .0s;
-  transition: .0s;
+  -webkit-transition: 0s;
+  -o-transition: 0s;
+  transition: 0s;
 }
 
 .nav {
@@ -171,9 +172,9 @@ html, body {
 }
 
 .menu__item a {
-  -webkit-transition: .25s;
-  -o-transition: .25s;
-  transition: .25s;
+  -webkit-transition: 0.25s;
+  -o-transition: 0.25s;
+  transition: 0.25s;
   display: block;
   padding: 15px 10px;
   font-size: 15px;
@@ -184,14 +185,14 @@ html, body {
 
 .menu__item a:hover {
   color: black;
-  background: #F0F0F0;
+  background: #f0f0f0;
 }
 
 .menu__item a:active {
   background: #e0e0e0;
-  -webkit-transition: .10s;
-  -o-transition: .10s;
-  transition: .10s;
+  -webkit-transition: 0.1s;
+  -o-transition: 0.1s;
+  transition: 0.1s;
 }
 
 .sidebar {
@@ -242,7 +243,6 @@ html, body {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  margin-top: 10px;
   height: 100%;
   -webkit-box-pack: start;
       -ms-flex-pack: start;
@@ -305,7 +305,6 @@ html, body {
 
 .main__header {
   margin-top: 20px;
-  margin-left: 15px;
 }
 
 .main__subject {
@@ -350,7 +349,7 @@ html, body {
   height: auto;
   background: #f9f9f9;
   border: 1px solid #d8d8d8;
-  margin: 10px 10px;
+  margin: 10px 0px;
   padding: 10px 10px;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -365,20 +364,20 @@ html, body {
   -webkit-box-align: start;
       -ms-flex-align: start;
           align-items: flex-start;
-  -webkit-transition: .25s ease-in;
-  -o-transition: .25s ease-in;
-  transition: .25s ease-in;
+  -webkit-transition: 0.25s ease-in;
+  -o-transition: 0.25s ease-in;
+  transition: 0.25s ease-in;
   cursor: pointer;
 }
 
 .list__item:hover {
-  background: #F0F0F0;
+  background: #f0f0f0;
 }
 
 .list__item:active {
-  -webkit-transition: .10s;
-  -o-transition: .10s;
-  transition: .10s;
+  -webkit-transition: 0.1s;
+  -o-transition: 0.1s;
+  transition: 0.1s;
   background: #e0e0e0;
 }
 
@@ -400,9 +399,9 @@ html, body {
 
 .pagination__button:hover {
   color: red;
-  -webkit-transition: .25s;
-  -o-transition: .25s;
-  transition: .25s;
+  -webkit-transition: 0.25s;
+  -o-transition: 0.25s;
+  transition: 0.25s;
 }
 
 .content {
@@ -438,20 +437,20 @@ html, body {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  -webkit-transition: .25s ease-in;
-  -o-transition: .25s ease-in;
-  transition: .25s ease-in;
+  -webkit-transition: 0.25s ease-in;
+  -o-transition: 0.25s ease-in;
+  transition: 0.25s ease-in;
   cursor: pointer;
 }
 
 .content__item:hover {
-  background: #F0F0F0;
+  background: #f0f0f0;
 }
 
 .content__item:active {
-  -webkit-transition: .10s;
-  -o-transition: .10s;
-  transition: .10s;
+  -webkit-transition: 0.1s;
+  -o-transition: 0.1s;
+  transition: 0.1s;
   background: #e0e0e0;
 }
 
@@ -587,9 +586,9 @@ html, body {
   outline: none;
   padding: 0px 5px;
   border: 1px solid black;
-  -webkit-transition: .25s;
-  -o-transition: .25s;
-  transition: .25s;
+  -webkit-transition: 0.25s;
+  -o-transition: 0.25s;
+  transition: 0.25s;
 }
 
 .login__text:focus {
@@ -606,9 +605,9 @@ html, body {
   color: black;
   cursor: pointer;
   outline: none;
-  -webkit-transition: .25s;
-  -o-transition: .25s;
-  transition: .25s;
+  -webkit-transition: 0.25s;
+  -o-transition: 0.25s;
+  transition: 0.25s;
 }
 
 .login__button:hover {
@@ -618,9 +617,9 @@ html, body {
 
 .login__button:active {
   background: #8d8d8d;
-  -webkit-transition: .0s;
-  -o-transition: .0s;
-  transition: .0s;
+  -webkit-transition: 0s;
+  -o-transition: 0s;
+  transition: 0s;
 }
 
 .adminwrapper {
@@ -685,9 +684,9 @@ html, body {
   color: black;
   cursor: pointer;
   outline: none;
-  -webkit-transition: .25s;
-  -o-transition: .25s;
-  transition: .25s;
+  -webkit-transition: 0.25s;
+  -o-transition: 0.25s;
+  transition: 0.25s;
   -ms-flex-item-align: center;
       -ms-grid-row-align: center;
       align-self: center;
@@ -700,9 +699,9 @@ html, body {
 
 .addgoods__button:active {
   background: #8d8d8d;
-  -webkit-transition: .0s;
-  -o-transition: .0s;
-  transition: .0s;
+  -webkit-transition: 0s;
+  -o-transition: 0s;
+  transition: 0s;
 }
 
 .addgoods__button-delete {
@@ -715,9 +714,9 @@ html, body {
   color: white;
   cursor: pointer;
   outline: none;
-  -webkit-transition: .25s;
-  -o-transition: .25s;
-  transition: .25s;
+  -webkit-transition: 0.25s;
+  -o-transition: 0.25s;
+  transition: 0.25s;
   float: right;
 }
 
@@ -728,9 +727,9 @@ html, body {
 
 .addgoods__button-delete:active {
   background: #8d8d8d;
-  -webkit-transition: .0s;
-  -o-transition: .0s;
-  transition: .0s;
+  -webkit-transition: 0s;
+  -o-transition: 0s;
+  transition: 0s;
 }
 
 @media (max-width: 768px) {
@@ -739,6 +738,15 @@ html, body {
   }
   .sidebar {
     display: none;
+  }
+  .main__container {
+    -webkit-box-pack: end;
+        -ms-flex-pack: end;
+            justify-content: flex-end;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: reverse;
+        -ms-flex-direction: column-reverse;
+            flex-direction: column-reverse;
   }
 }
 
@@ -766,9 +774,9 @@ html, body {
   }
   .menu__item a:active {
     background: #e0e0e0;
-    -webkit-transition: .10s;
-    -o-transition: .10s;
-    transition: .10s;
+    -webkit-transition: 0.1s;
+    -o-transition: 0.1s;
+    transition: 0.1s;
   }
   .nav {
     border-top: 0px solid #bbbbbb;
