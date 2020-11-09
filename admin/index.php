@@ -1,6 +1,7 @@
 <?php
 session_start();
 require('../php/connection.php');
+    require('../php/adminfuncs.php');
 CheckAvailability();
 ?>
 <!DOCTYPE html>
@@ -27,22 +28,28 @@ CheckAvailability();
                     <h1 class="main__subject subject">Главная</h1>
                 </div>
                 <div class="main__body content">
-                    <a class="content__link" href="goods.php">
+                    <?php
+                    if(!$query = mysqli_query($connection, "SELECT `name`,`path` FROM sections_ru LIMIT 1,3")){
+                        echo 'server error';
+                    }
+                    while($section = mysqli_fetch_assoc($query)):
+                    ?>
+                    <a class="content__link" href="/admin<?=$section['path']?>.php">
                         <div class="content__item">
-                            <h5 class="content__name">Управление товарами</h5>
-                            <p class="content__description"></p>
+                            <h5 class="content__name">Управление разделом "<?=$section['name']?>"</h5>
                         </div>
                     </a>
-                    <a class="content__link" href="news.php">
+                    <?php
+                    endwhile;
+                    ?>
+                    <a class="content__link" href="sections.php">
                         <div class="content__item">
-                            <h5 class="content__name">Управление новостями</h5>
-                            <p class="content__description"></p>
+                            <h5 class="content__name">Управление разделами</h5>
                         </div>
                     </a>
-                    <a class="content__link" href="articles.php">
+                    <a class="content__link" href="sections_other.php">
                         <div class="content__item">
-                            <h5 class="content__name">Управление статьями</h5>
-                            <p class="content__description"></p>
+                            <h5 class="content__name">Управление разделами (дополнительно)</h5>
                         </div>
                     </a>
                     

@@ -1,6 +1,7 @@
 <?php
 session_start();
 require('../../php/connection.php');
+    require('../../php/adminfuncs.php');
 
 $email = trim($_POST['email']);
 $password = trim($_POST['pass']);

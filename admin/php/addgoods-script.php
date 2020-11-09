@@ -1,12 +1,16 @@
 <?php
 session_start();
 require('../../php/connection.php');
+    require('../../php/adminfuncs.php');
 CheckAvailability();
 
 $name = trim($_POST['name']);
 $img = $_FILES['img'];
 $desc = trim($_POST['description']);
 $price = trim($_POST['price']);
+
+$name_en = trim($_POST['name_en']);
+$desc_en = trim($_POST['description_en']);
 
 // поддерживаемые типы файла
 $types = array('image/jpeg', 'image/png', 'image/jpg');
@@ -30,13 +34,18 @@ if($img['size'] > $size) {
 
 $path = 'img/goods/' . date('dmYHis') . $img['name'];
 
-if(!$query = mysqli_query($connection, "INSERT INTO `goods` (`name`,`description`,`price`,`img-path`) VALUES('$name', '$desc','$price', '$path')")){
+if(!$query = mysqli_query($connection, "INSERT INTO `goods_ru` (`name`,`description`,`price`,`img-path`) VALUES('$name', '$desc','$price', '$path')")){
     echo 'query error!';
     mysqli_close($connection);
     exit();
 }
 
+if(!$query = mysqli_query($connection, "INSERT INTO `goods_en` (`name`,`description`,`price`,`img-path`) VALUES('$name_en', '$desc_en','$price', '$path')")){
+    echo 'query error!';
+    mysqli_close($connection);
+    exit();
+}
 copy($img['tmp_name'], '../../' . $path);
 
 mysqli_close($connection);
-header('Location: ../index.php');
+header('Location: ../goods.php');

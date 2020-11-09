@@ -3,16 +3,29 @@ function f($item) {
 }
 
 let isExpanded = false
-window.onload = e => {
+
+window.addEventListener('load', e => {
     const navExpand = f('#nav-expand')
     navExpand.addEventListener('click', e => {
         if(!isExpanded) {
-            f('#nav').style.display = 'flex'
+            document.querySelector('nav').querySelectorAll('.menu').forEach(el => {
+                el.style.display = 'flex'
+            })
             isExpanded = true;
         } else {
-            f('#nav').style.display = 'none'
+            document.querySelector('nav').querySelectorAll('.menu').forEach(el => {
+                el.style.display = 'none'
+            })
             isExpanded = false;
 
         }
-    })   
-}
+    })  
+
+    window.addEventListener('resize', e => {
+        if(e.target.innerWidth > 600) 
+            document.querySelector('nav').querySelectorAll('.menu').forEach(el => el.style.display = 'flex')
+        else 
+            document.querySelector('nav').querySelectorAll('.menu').forEach(el => el.style.display = 'none')
+        
+    }) 
+})

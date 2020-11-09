@@ -1,6 +1,7 @@
 <?php
     session_start();
     require('../php/connection.php');
+    require('../php/adminfuncs.php');
 ?>
 <!DOCTYPE html>
 <html lang="ru">

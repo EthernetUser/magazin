@@ -13,3 +13,11 @@ function DeleteNews(){
         document.location.href = `php/deletenews-script.php?id=${id}`
     }
 }
+
+function DeleteArticles(){
+    let result = confirm("Статья будет безвозвратно удалена!")
+    if(result){
+        const id = document.querySelector('#id').value
+        document.location.href = `php/deletearticles-script.php?id=${id}`
+    }
+}

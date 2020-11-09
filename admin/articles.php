@@ -1,6 +1,7 @@
 <?php
 session_start();
 require('../php/connection.php');
+    require('../php/adminfuncs.php');
 CheckAvailability();
 ?>
 <!DOCTYPE html>
@@ -28,12 +29,12 @@ CheckAvailability();
                 </div>
                 <div class="main__body content">
                     <?php
-                    if(!$query = mysqli_query($connection,"SELECT * FROM `goods` ORDER BY `id` DESC")){
+                    if(!$query = mysqli_query($connection,"SELECT * FROM `articles_ru` ORDER BY `id` DESC")){
                         echo 'server error!';
                     }
 
-                    while ($goods = mysqli_fetch_assoc($query)){
-                        require('components/content_item.php');
+                    while ($articles = mysqli_fetch_assoc($query)){
+                        require('components/articles_item.php');
                     } 
                     ?>
                     

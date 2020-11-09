@@ -3,5 +3,8 @@ jQuery(function(){
         height: 400,
         lang: 'ru-RU'
     });
-
+    $('#text_en').summernote({
+        height: 400,
+        lang: 'ru-RU'
+    });
 })

@@ -1,17 +1,17 @@
 <?php
 require('php/connection.php');
+require('php/lang.php');
+require('php/section.php');
+require('php/section_other.php');
+$breadcrumbs = [
+    $sections[0][1] => $sections[0][2]
+];
+$section = $sections[0];
 ?>
 <!DOCTYPE html>
-<html lang="ru">
-
+<html lang="<?=$lang?>">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Magazin.ru</title>
-    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
-    <link href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" rel="stylesheet">
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-    <link rel="stylesheet" href="css/style.css">
+    <? require('components/head.php'); ?>
 </head>
 
 <body>
@@ -28,56 +28,48 @@ require('php/connection.php');
 
         <!-- Контентная часть -->
         <main class="main">
+            <div class="main__breadcrumbs">
+                <? require('components/breadcrumbs.php') ?>
+            </div>
             <div class="main__container">
                 <section>
-
                     <div class="main__header">
-                        <h1 class="main__subject subject">Статьи</h1>
+                        <h1 class="main__subject subject"><?=$sections[3][1]?></h1>
                     </div>
                     <div class="main__body list">
                         <?php
-                        if (!$query = mysqli_query($connection, "SELECT * FROM `articles` ORDER BY `id` DESC LIMIT 3")) {
+                        $countNotes = intval($section[3]);
+                        if (!$query = mysqli_query($connection, "SELECT * FROM `articles_$lang` ORDER BY `id` DESC LIMIT $countNotes")) {
                             echo 'server error!';
                         }
-    
+
                         while ($articles = mysqli_fetch_assoc($query)) {
-                        ?>
-    
-                            <a href="articlespost?id=<?= $articles['id'] ?>" class="list__link">
-                                <div class="list__item">
-                                    <h4><?= $articles['subject'] ?></h4>
-                                    <p style="align-self: flex-end;"><?= $articles['date'] ?></p>
-                                </div>
-                            </a>
-    
-                        <?php
+                            include('components/article_item.php'); 
                         }
                         ?>
                     </div>
                     <div class="main__footer pagination">
-                        <!-- <button class="pagination__button" onclick="">Все статьи</button> -->
-                        <a href="articles" class="pagination__button"> Все статьи</a>
+                        <a href="articles?lang=<?=$lang?>" class="pagination__button"><?=$section_other[1][0]?> "<?=$sections[3][1]?>"</a>
                     </div>
                 </section>
                 <section>
 
                     <div class="main__header">
-                        <h1 class="main__subject subject">Товары</h1>
+                        <h1 class="main__subject subject"><?=$sections[1][1]?></h1>
                     </div>
                     <div class="main__body content">
                         <?php
-                        if (!$query = mysqli_query($connection, "SELECT * FROM `goods` ORDER BY `id` DESC LIMIT 6")) {
+                        if (!$query = mysqli_query($connection, "SELECT * FROM `goods_$lang` ORDER BY `id` DESC LIMIT $countNotes")) {
                             echo 'server error!';
                         }
     
                         while ($goods = mysqli_fetch_assoc($query)) {
-                            require('components/conent_item.php');
+                            include('components/content_item.php');
                         }
                         ?>
-    
                     </div>
                     <div class="main__footer pagination">
-                    <a href="goods" class="pagination__button"> Все товары</a>
+                    <a href="goods?lang=<?=$lang?>" class="pagination__button"><?=$section_other[1][0]?> "<?=$sections[1][1]?>"</a>
                     </div>
                 </section>
             </div>
@@ -85,6 +77,7 @@ require('php/connection.php');
 
         <!-- Подвал сайта -->
         <? require('components/footer.php'); ?>
+        <? require('components/topscroller.php') ?>
     </div>
 </body>
 

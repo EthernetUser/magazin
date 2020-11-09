@@ -1,6 +1,7 @@
 <?php
 session_start();
 require('../php/connection.php');
+    require('../php/adminfuncs.php');
 CheckAvailability();
 ?>
 <!DOCTYPE html>
@@ -30,12 +31,22 @@ CheckAvailability();
                     <form action="php/addgoods-script.php" method="post" class="addgoods__form" enctype="multipart/form-data">
                         <label for="" class="addgoods__label">Название:</label>
                         <input type="text" name="name" class="addgoods__text" required>
+
+                        <label for="" class="addgoods__label">Название (Aнглийский):</label>
+                        <input type="text" name="name_en" class="addgoods__text" required>
+
                         <label for="" class="addgoods__label">Картинка:</label>
                         <input type="file" name="img" class="addgoods__file" required>
+
                         <label for="" class="addgoods__label">Описание:</label>
                         <textarea name="description" class="addgoods__textarea" id="" cols="30" rows="10" required></textarea>
+
+                        <label for="" class="addgoods__label">Описание (Английский):</label>
+                        <textarea name="description_en" class="addgoods__textarea" id="" cols="30" rows="10" required></textarea>
+
                         <label for="" class="addgoods__label">Цена:</label>
                         <input type="number" name="price" class="addgoods__text" required>
+
                         <input type="submit" value="Добавить" class="addgoods__button">
                     </form>
                 </div>

@@ -1,6 +1,7 @@
 <?php
 session_start();
 require('../../php/connection.php');
+    require('../../php/adminfuncs.php');
 CheckAvailability();
 
 $id = $_GET['id'];
@@ -13,10 +14,15 @@ if(!isset($id) || empty($id)){
 
 
 // удаление новости из бд
-if(!$query = mysqli_query($connection, "DELETE FROM `news` WHERE `id` = '$id'")) {
+if(!$query = mysqli_query($connection, "DELETE FROM `news_ru` WHERE `id` = '$id'")) {
     echo 'query error';
     mysqli_close($connection);
     exit();
 }
 
-header('Location: ../index.php');
+if(!$query = mysqli_query($connection, "DELETE FROM `news_en` WHERE `id` = '$id'")) {
+    echo 'query error';
+    mysqli_close($connection);
+    exit();
+}
+header('Location: ../news.php');

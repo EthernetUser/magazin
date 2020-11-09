@@ -1,6 +1,7 @@
 <?php
 session_start();
 require('../php/connection.php');
+    require('../php/adminfuncs.php');
 CheckAvailability();
 $id = $_GET['id'];
 if (!isset($id) || empty($id)) {
@@ -8,13 +9,20 @@ if (!isset($id) || empty($id)) {
     mysqli_close($connection);
     exit();
 }
-if (!$query = mysqli_query($connection, "SELECT * FROM `news` WHERE `id` = '$id'")) {
+if (!$query = mysqli_query($connection, "SELECT * FROM `news_ru` WHERE `id` = '$id'")) {
     echo 'query error!';
     var_dump($query);
     mysqli_close($connection);
     exit();
 }
+if (!$query_en = mysqli_query($connection, "SELECT * FROM `news_en` WHERE `id` = '$id'")) {
+    echo 'query error!';
+    var_dump($query_en);
+    mysqli_close($connection);
+    exit();
+}
 $news = mysqli_fetch_assoc($query);
+$news_en = mysqli_fetch_assoc($query_en);
 ?>
 <!DOCTYPE html>
 <html lang="ru">
@@ -47,8 +55,16 @@ $news = mysqli_fetch_assoc($query);
                     <form action="php/changenews-script.php" method="post" class="addgoods__form">
                         <p for="" class="addgoods__label">Заголовок:</p>
                         <input type="text" name="subject" class="addgoods__text" value="<?= $news['subject'] ?>" required>
+
+                        <p for="" class="addgoods__label">Заголовок (Английский):</p>
+                        <input type="text" name="subject_en" class="addgoods__text" value="<?= $news['subject'] ?>" required>
+                        
                         <p for="" class="addgoods__label">Текст:</p>
                         <textarea name="text" class="addgoods__textarea" id="text" cols="30" rows="10" required><?= $news['text'] ?></textarea>
+
+                        <p for="" class="addgoods__label">Текст (Английский):</p>
+                        <textarea name="text_en" class="addgoods__textarea" id="text_en" cols="30" rows="10" required><?= $news['text'] ?></textarea>
+
                         <input type="hidden" name="id" id="id" value="<?= $id ?>">
                         <div>
                             <input type="submit" value="Изменить" class="addgoods__button">

@@ -1,6 +1,7 @@
 <?php
 session_start();
 require('../php/connection.php');
+    require('../php/adminfuncs.php');
 CheckAvailability();
 ?>
 <!DOCTYPE html>
@@ -34,8 +35,16 @@ CheckAvailability();
                     <form action="php/addnews-script.php" method="post" class="addgoods__form">
                         <label for="" class="addgoods__label">Заголовок:</label>
                         <input type="text" name="subject" class="addgoods__text" required>
+
+                        <label for="" class="addgoods__label">Заголовок (Английский):</label>
+                        <input type="text" name="subject_en" class="addgoods__text" required>
+
                         <label for="" class="addgoods__label">Текст:</label>
                         <textarea name="text" class="addgoods__textarea" id="text" cols="30" rows="10" required></textarea>
+
+                        <label for="" class="addgoods__label">Текст (Английский):</label>
+                        <textarea name="text_en" class="addgoods__textarea" id="text_en" cols="30" rows="10" required></textarea>
+
                         <input type="submit" value="Добавить" class="addgoods__button">
                     </form>
                 </div>

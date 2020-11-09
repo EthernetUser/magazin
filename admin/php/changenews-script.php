@@ -1,15 +1,18 @@
 <?php
 session_start();
 require('../../php/connection.php');
+    require('../../php/adminfuncs.php');
 CheckAvailability();
 
 $id = $_POST['id'];
 $subject = trim($_POST['subject']);
 $text = trim($_POST['text']);
 
+$subject_en = trim($_POST['subject_en']);
+$text_en = trim($_POST['text_en']);
 
 
-if(empty($subject) || empty($text)) {
+if(empty($subject) || empty($text) || empty($subject_en) || empty($text_en)) {
     echo 'empty rows! ';
     mysqli_close($connection);
     exit();
@@ -17,11 +20,15 @@ if(empty($subject) || empty($text)) {
 
 
 // обновление данных в бд
-if(!$query = mysqli_query($connection,"UPDATE `news` SET `subject` = '$subject', `text` = '$text' WHERE `id` = '$id'")){
+if(!$query = mysqli_query($connection,"UPDATE `news_ru` SET `subject` = '$subject', `text` = '$text' WHERE `id` = '$id'")){
+    echo 'query error!';
+    die(mysqli_error($connection));
+}
+if(!$query = mysqli_query($connection,"UPDATE `news_en` SET `subject` = '$subject_en', `text` = '$text_en' WHERE `id` = '$id'")){
     echo 'query error!';
     die(mysqli_error($connection));
 }
 
 
 mysqli_close($connection);
-header('Location: ../index.php');
+header('Location: ../news.php');

@@ -1,6 +1,7 @@
 <?php
 session_start();
 require('../php/connection.php');
+    require('../php/adminfuncs.php');
 CheckAvailability();
 $id = $_GET['id'];
 if(!isset($id) || empty($id)){
@@ -8,13 +9,20 @@ if(!isset($id) || empty($id)){
     mysqli_close($connection);
     exit();
 }
-if(!$query = mysqli_query($connection,"SELECT * FROM `goods` WHERE `id` = '$id'")) {
+if(!$query = mysqli_query($connection,"SELECT * FROM `goods_ru` WHERE `id` = '$id'")) {
     echo 'query error!';
     var_dump($query);
     mysqli_close($connection);
     exit();
 }
+if(!$query_en = mysqli_query($connection,"SELECT * FROM `goods_en` WHERE `id` = '$id'")) {
+    echo 'query error!';
+    var_dump($query_en);
+    mysqli_close($connection);
+    exit();
+}
 $goods = mysqli_fetch_assoc($query);
+$goods_en = mysqli_fetch_assoc($query_en);
 ?>
 <!DOCTYPE html>
 <html lang="ru">
@@ -43,13 +51,23 @@ $goods = mysqli_fetch_assoc($query);
                     <form action="php/changegoods-script.php" method="post" class="addgoods__form" enctype="multipart/form-data">
                         <label for="" class="addgoods__label">Название:</label>
                         <input type="text" name="name" class="addgoods__text" value="<?=$goods['name']?>" required>
+
+                        <label for="" class="addgoods__label">Название (Английский):</label>
+                        <input type="text" name="name_en" class="addgoods__text" value="<?=$goods_en['name']?>" required>
+
                         <label for="" class="addgoods__label">Картинка:</label>
                         <p class="addgoods__littletxt">(Если менять картинку не нужно - оставьте поле пустым)</p>
                         <input type="file" name="img" class="addgoods__file">
+
                         <label for="" class="addgoods__label">Описание:</label>
                         <textarea name="description" class="addgoods__textarea" id="" cols="30" rows="10" required><?=$goods['description']?></textarea>
+
+                        <label for="" class="addgoods__label">Описание (Английский):</label>
+                        <textarea name="description_en" class="addgoods__textarea" id="" cols="30" rows="10" required><?=$goods_en['description']?></textarea>
+
                         <label for="" class="addgoods__label">Цена:</label>
                         <input type="number" name="price" class="addgoods__text" value="<?=$goods['price']?>" required>
+
                         <input type="hidden" name="id" id="id" value="<?=$goods['id']?>">
                         <div>
                             <input type="submit" value="Изменить" class="addgoods__button">
